@@ -85,7 +85,7 @@ Y añadimos un fichero oculto '.gitignore' al proyecto para añadir lo que no qu
 > git add .
 > git commit -m "Proyecto TypeScript Repaso 06-Enero-2020"
 
-Nos falta configurar git para ejecutar el commit:
+Si partimos de una máquina nueva y nos falta configurar git para ejecutar el commit:
 *** Por favor cuéntame quien eres.
 Corre
   git config --global user.email "you@example.com"
@@ -97,51 +97,45 @@ Omite --global para configurar tu identidad solo en este repositorio.
 > git config --global user.name  "Renegade..."
 
 Y ahora ejecutamos de nuevo: 
-> git commit -m "Proyecto Typescript API: Primer capítulo"
+> git commit -m "Proyecto TypeScript Repaso 06-Enero-2020"
 
-renegade@MiPC:~/Proyectos/Typescript-api$ git commit -m "Proyecto Typescript API: Primer capítulo"
-[master (commit-raíz) de0bc56] Proyecto Typescript API: Primer capítulo
- 8 files changed, 3254 insertions(+)
+renegade@MiPC:~/Proyectos/Proyecto-TypeScript-repaso-06-Enero-2021$ git commit -m "Proyecto TypeScript Repaso 06-Enero-2020"
+[master (commit-raíz) 41c2aca] Proyecto TypeScript Repaso 06-Enero-2020
+ 6 files changed, 250 insertions(+)
  create mode 100644 .gitignore
- create mode 100644 Documentacion-Typescript-API.txt
- create mode 100644 data/clubs.json
- create mode 100644 data/resultados.json
+ create mode 100644 Repaso.txt
+ create mode 100644 dist/repaso.js
  create mode 100644 package-lock.json
  create mode 100644 package.json
- create mode 100644 src/index.ts
  create mode 100644 tsconfig.json
 
-renegade@MiPC:~/Proyectos/Typescript-api$ git add .
-renegade@MiPC:~/Proyectos/Typescript-api$ git commit -m "Añado más información a fichero de documentación"
+
 
 12º Quiero añadir un directorio remoto (git add remote...)
 
-> git remote add TypescriptAPI https://github.com/RenegadeAsturias/TypescriptAPI.git
+> git remote add Proyecto-TypeScript-repaso-06-Enero-2021 https://github.com/RenegadeAsturias/Proyecto-TypeScript-repaso-06-Enero-2021.git
 
 19º Para ver los remotos:
 > git remote
-TypescriptAPI
+Proyecto-TypeScript-repaso-06-Enero-2021.git
 
 20º Ahora queremos enviar el código de nuestro repositorio a la nube:
 ¡Pero ojo que el repositorio debe existir en GitHub antes de hacer el push!
-Desde GitHub me he creado un repositorio: 'TypescriptAPI'
+Desde GitHub me he creado un repositorio: 'Proyecto-TypeScript-repaso-06-Enero-2021'
 
 Y ahora para subir el código a GitHub:
 > git push <<nombre del remoto>> <<rama que queremos subir>>
 > git push origin master <- Sube el código de la rama master
 > git push origin --all  <- Sube todo el código al servidor remoto
 
-enegade@MiPC:~/Proyectos/Typescript-api$ git push TypescriptAPI master
-Enumerando objetos: 15, listo.
-Contando objetos: 100% (15/15), listo.
+renegade@MiPC:~/Proyectos/Proyecto-TypeScript-repaso-06-Enero-2021$ git push https://github.com/RenegadeAsturias/Proyecto-TypeScript-repaso-06-Enero-2021.git master
+Enumerando objetos: 9, listo.
+Contando objetos: 100% (9/9), listo.
 Compresión delta usando hasta 4 hilos
-Comprimiendo objetos: 100% (13/13), listo.
-Escribiendo objetos: 100% (15/15), 10.57 KiB | 902.00 KiB/s, listo.
-Total 15 (delta 3), reusado 0 (delta 0)
-remote: Resolving deltas: 100% (3/3), done.
-To https://github.com/RenegadeAsturias/TypescriptAPI.git
+Comprimiendo objetos: 100% (6/6), listo.
+Escribiendo objetos: 100% (9/9), 5.15 KiB | 2.57 MiB/s, listo.
+Total 9 (delta 1), reusado 0 (delta 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/RenegadeAsturias/Proyecto-TypeScript-repaso-06-Enero-2021.git
  * [new branch]      master -> master
-
-renegade@MiPC:~/Proyectos/Typescript-api$ git add .
-renegade@MiPC:~/Proyectos/Typescript-api$ git commit -m "Añado más información a fichero de documentación. Referente a cómo subir el código del proyecto a GitHub."
 
