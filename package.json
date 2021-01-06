@@ -1,0 +1,15 @@
+{
+  "name": "proyecto-typescript-repaso",
+  "version": "1.0.0",
+  "description": "Proyecto Typescript de Repaso",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/repaso.js"
+  },
+  "author": "RenegadeAsturias",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}

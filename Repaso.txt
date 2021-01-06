@@ -1,0 +1,147 @@
+
+
+***********************************************************************************************************
+***********************************************************************************************************
+VOY A CREAR UNA APLICACIÓN TYPESCRIPT DE REPASO:
+***********************************************************************************************************
+***********************************************************************************************************
+
+0.- En mi equipo sigue instalado node y npm y resaso las versiones:
+renegade@MiPC:~/Proyectos/Proyecto-repaso-06-Enero-2021$ node -v --> v10.19.0
+renegade@MiPC:~/Proyectos/Proyecto-repaso-06-Enero-2021$ npm -v  --> 6.14.8
+
+1.- Me creo un proyecto de repaso: Proyecto-repaso-06-Enero-2021 desde Visual Studio
+2.- Inicializo el proyecto desde la consola inicializando el proyecto con npm:
+
+renegade@MiPC:~/Proyectos/Proyecto-repaso-06-Enero-2021$ npm init
+
+npm init > Crea un fichero de configuración: package.json para el proyecto:
+Con el asistente se inicializa:
+
+About to write to /home/renegade/Proyectos/Proyecto-repaso-06-Enero-2021/package.json:
+
+{
+  "name": "proyecto-repaso",
+  "version": "1.0.0",
+  "description": "Proyecto de repaso",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "RenegadeAsturias",
+  "license": "ISC"
+}
+
+4.- No tengo instalado TypeScript globalmente en el sistema
+y voy a utilizarlo en este proyecto, así que voy a instalarlo como una dependencia:
+
+renegade@MiPC:~/Proyectos/Proyecto-repaso-06-Enero-2021$ npm i --save-dev typescript
+
+Se añade la dependencia de desarrollo al package.json :
+
+"devDependencies": {
+    "typescript": "^4.1.3"
+}
+
+5.- Vamos a crear el 'tsconfig.json' para nuestra aplicación de Typescript
+¡Ojo! Ejecútalo desde la raíz del proyecto para que el fichero que cree te lo deje en la carpeta raíz:
+renegade@MiPC:~/Proyectos/Proyecto-TypeScript-repaso-06-Enero-2021$ node_modules/.bin/tsc --init
+message TS6071: Successfully created a tsconfig.json file.
+
+6.- En el fichero 'tsconfig.json' configuro almenos estas dos propiedades: outDir, rootDir
+"outDir": "./dist",   /* Redirect output structure to the directory. */
+"rootDir": "./src",   /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+
+7.- Me creo el directorio 'src' y añado un fichero de ejemplo 'repaso.ts'
+
+8.- Para traspilarlo utilizando los scripts configurables de npm configuramos en el 'package.json'
+"scripts": {
+  "build": "tsc", // Esto nos permitirá ejecutar desde consola: nmp run build y generará la carpeta ./dist si no existe y dejará el fichero traspilado en ./dist/repaso.js
+  "start": "node dist/repaso.js" // Para ejecutar con node el fichero javascript
+},
+
+9º Y ejecutamos desde la consola:
+> npm run build  -> Esto ejecuta 'node_modules/.bin/tsc' que: transpila el fichero 'repaso.ts'
+Y deja el fichero generado en './dist/repaso.js' por la configuración del 'tsconfig.json'
+> com.typescript.api@1.0.0 build /home/renegade/Proyectos/Proyecto-TypeScript-repaso-06-Enero-2021
+> tsc
+
+***********************************************************************************************************
+***********************************************************************************************************
+VOY A SUBIR EL PROYECTO TYPESCRIPT DE REPASO A GITHUB:
+***********************************************************************************************************
+***********************************************************************************************************
+
+10º Vamos a hacer un repositorio git:
+> git init
+Inicializado repositorio Git vacío en /home/renegade/Proyectos/Proyecto-TypeScript-repaso-06-Enero-2021/.git/
+
+Y añadimos un fichero oculto '.gitignore' al proyecto para añadir lo que no queramos subir, en este caso, 
++La carpeta: 'node_modules'
++La carpeta con los fuentes traspilados tampoco hace falta subirla 'src'
+
+
+11º Subimos al repositorio nuestro proyecto y hacemos commit de la primera versión:
+> git add .
+> git commit -m "Proyecto TypeScript Repaso 06-Enero-2020"
+
+Nos falta configurar git para ejecutar el commit:
+*** Por favor cuéntame quien eres.
+Corre
+  git config --global user.email "you@example.com"
+  git config --global user.name "Tu Nombre"
+para configurar la identidad por defecto de tu cuenta.
+Omite --global para configurar tu identidad solo en este repositorio.
+
+> git config --global user.email "renegade...@gmail.com"
+> git config --global user.name  "Renegade..."
+
+Y ahora ejecutamos de nuevo: 
+> git commit -m "Proyecto Typescript API: Primer capítulo"
+
+renegade@MiPC:~/Proyectos/Typescript-api$ git commit -m "Proyecto Typescript API: Primer capítulo"
+[master (commit-raíz) de0bc56] Proyecto Typescript API: Primer capítulo
+ 8 files changed, 3254 insertions(+)
+ create mode 100644 .gitignore
+ create mode 100644 Documentacion-Typescript-API.txt
+ create mode 100644 data/clubs.json
+ create mode 100644 data/resultados.json
+ create mode 100644 package-lock.json
+ create mode 100644 package.json
+ create mode 100644 src/index.ts
+ create mode 100644 tsconfig.json
+
+renegade@MiPC:~/Proyectos/Typescript-api$ git add .
+renegade@MiPC:~/Proyectos/Typescript-api$ git commit -m "Añado más información a fichero de documentación"
+
+12º Quiero añadir un directorio remoto (git add remote...)
+
+> git remote add TypescriptAPI https://github.com/RenegadeAsturias/TypescriptAPI.git
+
+19º Para ver los remotos:
+> git remote
+TypescriptAPI
+
+20º Ahora queremos enviar el código de nuestro repositorio a la nube:
+¡Pero ojo que el repositorio debe existir en GitHub antes de hacer el push!
+Desde GitHub me he creado un repositorio: 'TypescriptAPI'
+
+Y ahora para subir el código a GitHub:
+> git push <<nombre del remoto>> <<rama que queremos subir>>
+> git push origin master <- Sube el código de la rama master
+> git push origin --all  <- Sube todo el código al servidor remoto
+
+enegade@MiPC:~/Proyectos/Typescript-api$ git push TypescriptAPI master
+Enumerando objetos: 15, listo.
+Contando objetos: 100% (15/15), listo.
+Compresión delta usando hasta 4 hilos
+Comprimiendo objetos: 100% (13/13), listo.
+Escribiendo objetos: 100% (15/15), 10.57 KiB | 902.00 KiB/s, listo.
+Total 15 (delta 3), reusado 0 (delta 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/RenegadeAsturias/TypescriptAPI.git
+ * [new branch]      master -> master
+
+renegade@MiPC:~/Proyectos/Typescript-api$ git add .
+renegade@MiPC:~/Proyectos/Typescript-api$ git commit -m "Añado más información a fichero de documentación. Referente a cómo subir el código del proyecto a GitHub."
+
